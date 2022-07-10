@@ -50,10 +50,10 @@
                     </li>
                 @endauth
                 <li class="nav-item me-lg-3">
-                    <button data-toggle="modal" data-target="#cekResi"
+                    <a data-toggle="modal" data-target="#cekResi"
 
                         class="nav-link fw-medium btn full-radius py-2 px-4 btn-primary text-white mt-2">Cek
-                        Resi</button>
+                        Resi</a>
                 </li>
                 <li class="nav-item me-lg-3">
                     <a

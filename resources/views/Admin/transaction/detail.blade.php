@@ -127,6 +127,7 @@
                             <td>
                                 <span class="badge badge-success">SUDAH BAYAR</span>
                             </td>
+                            @else
                             <td>
                                 <span class="badge badge-danger">CANCELLED</span>
                             </td>

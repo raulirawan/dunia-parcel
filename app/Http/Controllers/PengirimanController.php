@@ -72,9 +72,9 @@ class PengirimanController extends Controller
                 'first_name' => Auth::user()->name,
                 'email' => Auth::user()->email,
             ],
-            // 'callbacks' => [
-            //     'finish' => 'https://bookinggunungslamet.my.id/',
-            // ],
+            'callbacks' => [
+                'finish' => 'https://duniaparcelexpress.my.id/transaksi',
+            ],
             'enable_payments' => ['bca_va','permata_va','bni_va','bri_va','gopay'],
             'vtweb' => [],
         ];

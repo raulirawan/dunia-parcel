@@ -17,56 +17,58 @@
             <div class="row">
                 <div class="col-md-12">
                     <h3 class="h3">Tabel Transaksi</h3>
-                    <table class="table table-bordered">
-                        <tr>
-                            <th style="width: 15%">Tanggal Transaksi</th>
-                            <th style="width: 15%">Kode Transaksi</th>
-                            <th>Nomor Resi</th>
-                            <th>Status</th>
-                            <th style="width: 10%">Aksi</th>
-                        </tr>
-                        <tbody>
-                            @foreach ($transactions as $transaction)
-                                <tr>
-                                    <td>{{ $transaction->created_at }}</td>
-                                    <td>{{ $transaction->kode_transaksi }}</td>
-                                    <td>{{ $transaction->no_resi ?? 'Belum Tersedia' }}</td>
-                                    <td>
-                                        @if ($transaction->status == 'PENDING')
-                                            <span class="badge bg-warning">PENDING</span>
-                                        @elseif($transaction->status == 'ON PROGRESS')
-                                            <span class="badge bg-warning">ON PROGRESS</span>
-                                        @elseif($transaction->status == 'SUDAH BAYAR')
-                                            <span class="badge bg-success">SUDAH BAYAR</span>
-                                        @elseif($transaction->status == 'DELIVERED')
-                                            <span class="badge bg-success">DELIVERED</span>
-                                        @else
-                                            <span class="badge bg-danger">CANCELLED</span>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <button  id="detail" data-toggle="modal" data-target="#detail-transaksi"
-                                            data-tanggal_transaksi="{{ $transaction->created_at }}"
-                                            data-kode_transaksi="{{ $transaction->kode_transaksi }}"
-                                            data-no_resi="{{ $transaction->no_resi }}"
-                                            data-nama_paket="{{ $transaction->paket->nama_paket }}"
-                                            data-nama_pengirim="{{ $transaction->nama_pengirim }}"
-                                            data-nama_penerima="{{ $transaction->nama_penerima }}"
-                                            data-nomor_hp_penerima="{{ $transaction->nomor_hp_penerima }}"
-                                            data-alamat_penerima="{{ $transaction->alamat_penerima }}"
-                                            data-nama_barang="{{ $transaction->nama_barang }}"
-                                            data-jenis_barang="{{ $transaction->jenis_barang }}"
-                                            data-berat_barang="{{ $transaction->berat_barang }}"
-                                            data-status="{{ $transaction->status }}"
-                                            data-total_harga="{{ $transaction->total_harga }}"
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th style="width: 15%">Tanggal Transaksi</th>
+                                <th style="width: 15%">Kode Transaksi</th>
+                                <th>Nomor Resi</th>
+                                <th>Status</th>
+                                <th style="width: 10%">Aksi</th>
+                            </tr>
+                            <tbody>
+                                @foreach ($transactions as $transaction)
+                                    <tr>
+                                        <td>{{ $transaction->created_at }}</td>
+                                        <td>{{ $transaction->kode_transaksi }}</td>
+                                        <td>{{ $transaction->no_resi ?? 'Belum Tersedia' }}</td>
+                                        <td>
+                                            @if ($transaction->status == 'PENDING')
+                                                <span class="badge bg-warning">PENDING</span>
+                                            @elseif($transaction->status == 'ON PROGRESS')
+                                                <span class="badge bg-warning">ON PROGRESS</span>
+                                            @elseif($transaction->status == 'SUDAH BAYAR')
+                                                <span class="badge bg-success">SUDAH BAYAR</span>
+                                            @elseif($transaction->status == 'DELIVERED')
+                                                <span class="badge bg-success">DELIVERED</span>
+                                            @else
+                                                <span class="badge bg-danger">CANCELLED</span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <button  id="detail" data-toggle="modal" data-target="#detail-transaksi"
+                                                data-tanggal_transaksi="{{ $transaction->created_at }}"
+                                                data-kode_transaksi="{{ $transaction->kode_transaksi }}"
+                                                data-no_resi="{{ $transaction->no_resi }}"
+                                                data-nama_paket="{{ $transaction->paket->nama_paket }}"
+                                                data-nama_pengirim="{{ $transaction->nama_pengirim }}"
+                                                data-nama_penerima="{{ $transaction->nama_penerima }}"
+                                                data-nomor_hp_penerima="{{ $transaction->nomor_hp_penerima }}"
+                                                data-alamat_penerima="{{ $transaction->alamat_penerima }}"
+                                                data-nama_barang="{{ $transaction->nama_barang }}"
+                                                data-jenis_barang="{{ $transaction->jenis_barang }}"
+                                                data-berat_barang="{{ $transaction->berat_barang }}"
+                                                data-status="{{ $transaction->status }}"
+                                                data-total_harga="{{ $transaction->total_harga }}"
 
-                                            class="btn btn-info btn-sm text-white">Detail</button>
-                                    </td>
+                                                class="btn btn-info btn-sm text-white">Detail</button>
+                                        </td>
 
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
             </div>

@@ -24,7 +24,7 @@
                                 <th style="width: 15%">Kode Transaksi</th>
                                 <th>Nomor Resi</th>
                                 <th>Status</th>
-                                <th style="width: 10%">Aksi</th>
+                                <th style="width: 20%">Aksi</th>
                             </tr>
                             <tbody>
                                 @foreach ($transactions as $transaction)
@@ -46,6 +46,9 @@
                                             @endif
                                         </td>
                                         <td>
+                                            @if($transaction->status == 'PENDING')
+                                            <a class="btn btn-success btn-sm text-white" href="{{ $transaction->link_pembayaran }}" target="_blank">Bayar</a>
+                                            @endif
                                             <button  id="detail" data-toggle="modal" data-target="#detail-transaksi"
                                                 data-tanggal_transaksi="{{ $transaction->created_at }}"
                                                 data-kode_transaksi="{{ $transaction->kode_transaksi }}"

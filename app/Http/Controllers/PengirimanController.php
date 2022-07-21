@@ -83,7 +83,7 @@ class PengirimanController extends Controller
             //ambil halaman payment midtrans
 
             $paymentUrl = Snap::createTransaction($midtrans_params)->redirect_url;
-            $transaction->link_pembayaran;
+            $transaction->link_pembayaran = $paymentUrl;
             $transaction->save();
 
             if($transaction != null) {

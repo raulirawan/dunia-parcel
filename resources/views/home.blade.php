@@ -14,7 +14,7 @@
                                 <div class="slider-exodus">
                                     <img alt="J&amp;T Express Siap Menjangkau Seluruh Indonesia"
                                         width="437px"
-                                        src="https://kiriminaja.com/storage/Slider/January22/1642824612_1642403148_Webslider fix.png"
+                                        src="{{ asset('template/promo_kj_assets/images/home.png') }}"
                                         class="img-fluid" />
                                     <!--                                                <img alt="PestaPoraDuniaParcel" width="437px" src="-->
                                     <!--" class="img-fluid" />-->
@@ -37,7 +37,7 @@
                             <div class="mt-3 mt-lg-4">
                                 <div class="row">
                                     <div class="col-lg pb-3">
-                                        <a href="https://dashboard.kiriminaja.com/v3/mbr20/register?r_code=promohemat"
+                                        <a href="{{ route('pengiriman.index') }}"
                                             class="btn btn-lg btn-primary full-radius">Daftar
                                             Sekarang!</a>
                                     </div>
@@ -49,59 +49,7 @@
             </div>
         </div>
     </header>
-    <div class="expedition-list-container">
-        <section class="expedition-list">
-            <div class="container px-mobile-fix">
-                <div class="owl-trusted owl-carousel owl-theme mt-4">
 
-                    <div class="item">
-                        <div class="p-4 mb-3 mb-lg-0 col-lg text-center">
-                            <img src="template/promo_kj_assets/images/v2/jne.png" alt="Kurir jne"
-                                class="img-fluid" style="max-height: 40px; width: auto">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="p-4 mb-3 mb-lg-0 col-lg text-center">
-                            <img src="template/promo_kj_assets/images/v2/jnt.png" alt="Kurir jnt"
-                                class="img-fluid" style="max-height: 40px; width: auto">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="p-4 mb-3 mb-lg-0 col-lg text-center">
-                            <img src="template/promo_kj_assets/images/v2/sicepat.png"
-                                alt="Kurir sicepat" class="img-fluid"
-                                style="max-height: 40px; width: auto">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="p-4 mb-3 mb-lg-0 col-lg text-center">
-                            <img src="template/promo_kj_assets/images/v2/sap.png" alt="Kurir sap"
-                                class="img-fluid" style="max-height: 40px; width: auto">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="p-4 mb-3 mb-lg-0 col-lg text-center">
-                            <img src="template/promo_kj_assets/images/v2/jx.png" alt="Kurir jx"
-                                class="img-fluid" style="max-height: 40px; width: auto">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="p-4 mb-3 mb-lg-0 col-lg text-center">
-                            <img src="template/promo_kj_assets/images/v2/anteraja.png"
-                                alt="Kurir anteraja" class="img-fluid"
-                                style="max-height: 40px; width: auto">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="p-4 mb-3 mb-lg-0 col-lg text-center">
-                            <img src="template/promo_kj_assets/images/v2/idx.png" alt="Kurir idx"
-                                class="img-fluid" style="max-height: 40px; width: auto">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
 </div>
 
 
@@ -318,34 +266,7 @@
         </div>
     </div>
 </section>
-<section class="info-card mt-5">
-    <div class="container px-mobile-fix">
-        <div>
-            <div class="card with-accent-parent border-0 h-100 elevation-super accent-info">
-                <div class="card-body m-4 px-lg-4 pb-lg-4">
-                    <div class="text-center">
-                        <h4 class="h3_2 mb-5">Fitur Undelivery Untuk Meminimalisir Retur
-                            Pengiriman</h4>
-                    </div>
-                    <div class="row my-4">
-                        <div class="col-lg-6"><img
-                                src="template/promo_kj_assets/images/v2/u4-1-1024x743.jpg" alt=""
-                                class="img-fluid"></div>
-                        <div class="col-lg">
-                            <ul class="list-check-2 mt-3 mb-4 me-lg-5">
-                                <li>Menaikkan closing rate pengirimanmu, jadi semakin tinggi juga omzet
-                                    pengirimanmu.</li>
-                                <li>Mengetahui update informasi apabila paket kamu ada kendala.</li>
-                                <li>Customer Service yang siap membantu menyelesaikan paket-paket yang
-                                    terkendala.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 <section class="info-card faq-section mt-5">
     <div class="container px-mobile-fix">
         <div>
@@ -356,7 +277,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <p class="fw-bold">
-                                    Apakah kiriminAja adalah salah satu Ekspedisi ?
+                                    Apakah dunia Parcel adalah salah satu Ekspedisi ?
                                 </p>
                                 <p class="answer">
                                     Bukan. DuniaParcel adalah satu aplikasi yang melingkup
@@ -377,7 +298,7 @@
                                     Apakah bisa kirim produk ke seluruh Indonesia?
                                 </p>
                                 <p class="answer">
-                                    DI Aplikasi kiriminAja kamu bisa pilihhh ekspedisi yang tersedia di
+                                    DI Aplikasi dunia Parcel kamu bisa pilihhh ekspedisi yang tersedia di
                                     lokasi tujuanmu.
                                 </p>
                             </div>
@@ -392,7 +313,7 @@
                             </div>
                             <div class="col-12">
                                 <p class="fw-bold">
-                                    Apakah kiriminAja Cocok untuk COD?
+                                    Apakah dunia Parcel Cocok untuk COD?
                                 </p>
                                 <p class="answer">
                                     Fitur terbaik dari Aplikasi DuniaParcel adalah COD yang bisa cair
@@ -401,10 +322,10 @@
                             </div>
                             <div class="col-12">
                                 <p class="fw-bold">
-                                    Apakah dengan kiriminAja paket bisa di Jemput di rumah?
+                                    Apakah dengan dunia Parcel paket bisa di Jemput di rumah?
                                 </p>
                                 <p class="answer">
-                                    Dengan aplikasi kiriminAja paket kamu bisa langsung di jemput oleh
+                                    Dengan aplikasi dunia Parcel paket kamu bisa langsung di jemput oleh
                                     Ekspedisi yang kamu pilih dari aplikasi.
                                 </p>
                             </div>

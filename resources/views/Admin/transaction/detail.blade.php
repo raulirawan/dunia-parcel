@@ -104,6 +104,18 @@
                             <td>{{ $transaction->jenis_barang }}</td>
                         </tr>
                         <tr>
+                            <th style="width: 400px">Panjang Barang</th>
+                            <td>{{ $transaction->panjang }} CM</td>
+                        </tr>
+                         <tr>
+                            <th style="width: 400px">Tinggi Barang</th>
+                            <td>{{ $transaction->tinggi }} CM</td>
+                        </tr>
+                         <tr>
+                            <th style="width: 400px">Lebar Barang</th>
+                            <td>{{ $transaction->lebar }} CM</td>
+                        </tr>
+                        <tr>
                             <th style="width: 400px">Berat Barang</th>
                             <td>{{ $transaction->berat_barang }} KG</td>
                         </tr>
@@ -122,6 +134,10 @@
                             @elseif ($transaction->status == 'PENDING')
                             <td>
                                 <span class="badge badge-warning">PENDING</span>
+                            </td>
+                            @elseif ($transaction->status == 'PERLU DIAMBIL')
+                            <td>
+                                <span class="badge badge-warning">PERLU DIAMBIL</span>
                             </td>
                             @elseif ($transaction->status == 'SUDAH BAYAR')
                             <td>

@@ -52,6 +52,9 @@ class PengirimanController extends Controller
         $transaction->status = 'ON PROGRESS';
         $transaction->keterangan = $keterangan;
         $transaction->total_harga = $request->total_harga;
+        $transaction->panjang = $request->panjang;
+        $transaction->lebar = $request->lebar;
+        $transaction->tinggi = $request->tinggi;
 
 
         $transaction->save();

@@ -249,6 +249,35 @@
                                 name="berat_barang" id="berat_barang" placeholder="Berat Barang (kg)">
                         </div>
                     </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Panjang (cm)</label>
+                                    <input type="number" class="form-control mt-2"
+                                style="background: none; border: 2px solid #CED4D9"
+                                        valuel mt-2"
+                                style="background: none; border: 2px solid #CED4D9"{{ old('panjang') }}" name="panjang" id="panjang" placeholder="Panjang Barang (cm)">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Lebar (cm)</label>
+                                    <input type="number" class="form-control mt-2"
+                                style="background: none; border: 2px solid #CED4D9"
+                                        value="{{ old('lebar') }}" name="lebar" id="lebar" placeholder="Lebar Barang (cm)">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Tinggi (cm)</label>
+                                    <input type="number" class="form-control mt-2"
+                                style="background: none; border: 2px solid #CED4D9"
+                                        value="{{ old('tinggi') }}" name="tinggi" id="tinggi" placeholder="Tinggi Barang (cm)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-md-12 mt-5 mb-5">
                         <div class="text-bold">Total Harga : <span id="total_harga"></span></div>
                     </div>
@@ -356,6 +385,11 @@
                     var jenis_barang = $('[name=jenis_barang]').val();
                     var paket = $('[name=paket]').val();
                     var berat_barang = $('[name=berat_barang]').val();
+                    var panjang = $('[name=panjang]').val();
+                    var lebar = $('[name=lebar]').val();
+                    var tinggi = $('[name=tinggi]').val();
+
+
 
 
                     var paket_id = paket.split("-");
@@ -416,6 +450,18 @@
                         alert('Paket Tidak Boleh Kosong');
                         return false;
                     }
+                    if(panjang.length == 0){
+                        alert('Panjang Barang Tidak Boleh Kosong');
+                        return false;
+                    }
+                    if(lebar.length == 0){
+                        alert('Lebar Barang Tidak Boleh Kosong');
+                        return false;
+                    }
+                    if(tinggi.length == 0){
+                        alert('Tinggi Barang Tidak Boleh Kosong');
+                        return false;
+                    }
                     $("#text-button").addClass('d-none');
                     $("#buat-transaksi").prop('disabled', true);
                     $("#spinner").removeClass('d-none');
@@ -438,6 +484,9 @@
                             berat_barang,
                             paket_id,
                             total_harga,
+                            panjang,
+                            lebar,
+                            tinggi,
                             _token: $('meta[name="csrf-token"]').attr('content'),
                         },
                         success: function(result, textStatus, jqXHR) {

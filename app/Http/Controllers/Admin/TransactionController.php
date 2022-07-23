@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Transaction;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\TerimaPaket;
+use Illuminate\Support\Facades\Mail;
 use Yajra\DataTables\Facades\DataTables;
 
 class TransactionController extends Controller
@@ -39,6 +41,10 @@ class TransactionController extends Controller
                         return '<span class="badge badge-success">DELIVERED</span>';
                     } elseif($item->status == 'ON PROGRESS') {
                         return '<span class="badge badge-warning">ON PROGRESS</span>';
+                    }elseif($item->status == 'SUDAH BAYAR') {
+                        return '<span class="badge badge-success">SUDAH BAYAR</span>';
+                    }elseif($item->status == 'PERLU DIAMBIL') {
+                        return '<span class="badge badge-warning">PERLU DIAMBIL</span>';
                     }
                     else {
                         return '<span class="badge badge-danger">CANCELLED</span>';
@@ -69,7 +75,7 @@ class TransactionController extends Controller
         $transaction = Transaction::findOrFail($id);
         $keterangan = [];
         $keterangan[] = [
-            'pesan' => 'Paket Sampai di Pusat Sortir',
+            'pesan' => 'Kurir Sedang Menuju Tempat Pick Up',
             'created_at' => now(),
         ];
 
@@ -78,7 +84,7 @@ class TransactionController extends Controller
         $length = 8;
 
         $no_resi = 'DN'.substr(str_shuffle("01234565789"), 0, $length);
-        $transaction->status = 'ON PROGRESS';
+        $transaction->status = 'PERLU DIAMBIL';
         $transaction->no_resi = $no_resi;
         $transaction->keterangan = $keterangan;
         $transaction->save();
@@ -148,7 +154,33 @@ class TransactionController extends Controller
     {
         $transaction = Transaction::findOrFail($request->transaction_id);
         $transaction->status = $request->status;
+        if($request->status == 'DELIVERED') {
+            if($transaction->user_id != null) {
+                $data = [
+                    'nama_user' => $transaction->user->name,
+                    'no_resi' => $transaction->no_resi,
+                    'nama_pengirim' => $transaction->nama_pengirim,
+                    'nomor_hp_pengirim' => $transaction->nomor_hp_pengirim,
+                    'nama_penerima' => $transaction->nama_penerima,
+                    'nomor_hp_penerima' => $transaction->nomor_hp_penerima,
+                ];
+                $data_keterangan = [];
+                $data_keterangan = json_decode($transaction->keterangan, true);
+
+                $dataPush = [
+                    'pesan' => 'Paket Di Terima Pelanggan',
+                    'created_at' => now(),
+                ];
+
+                array_push($data_keterangan, $dataPush);
+
+                $transaction->keterangan = $data_keterangan;
+
+                Mail::to($transaction->user)->send(new TerimaPaket($data));
+            }
+        }
         $transaction->save();
+
 
         if($transaction != null)
         {

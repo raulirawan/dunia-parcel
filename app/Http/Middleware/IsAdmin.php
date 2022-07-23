@@ -18,6 +18,8 @@ class IsAdmin
     {
         if(Auth::user()->roles == 'ADMIN' || Auth::user()->roles == 'PEMILIK') {
             return $next($request);
+        }else if(Auth::user()->roles == 'PETUGAS') {
+            return redirect('/petugas/dashboard');
         }
         return redirect('/');
     }

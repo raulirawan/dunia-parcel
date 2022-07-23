@@ -39,6 +39,8 @@
                                                 <span class="badge bg-warning">ON PROGRESS</span>
                                             @elseif($transaction->status == 'SUDAH BAYAR')
                                                 <span class="badge bg-success">SUDAH BAYAR</span>
+                                            @elseif($transaction->status == 'PERLU DIAMBIL')
+                                                <span class="badge bg-warning">PERLU DIAMBIL</span>
                                             @elseif($transaction->status == 'DELIVERED')
                                                 <span class="badge bg-success">DELIVERED</span>
                                             @else
@@ -63,6 +65,9 @@
                                                 data-berat_barang="{{ $transaction->berat_barang }}"
                                                 data-status="{{ $transaction->status }}"
                                                 data-total_harga="{{ $transaction->total_harga }}"
+                                                data-panjang="{{ $transaction->panjang }}"
+                                                data-lebar="{{ $transaction->lebar }}"
+                                                data-tinggi="{{ $transaction->tinggi }}"
 
                                                 class="btn btn-info btn-sm text-white">Detail</button>
                                         </td>
@@ -131,6 +136,18 @@
                             <td id="jenis_barang"></td>
                         </tr>
                         <tr>
+                            <th style="width: 50%">Pajang Barang</th>
+                            <td id="panjang"></td>
+                        </tr>
+                        <tr>
+                            <th style="width: 50%">Lebar Barang</th>
+                            <td id="lebar"></td>
+                        </tr>
+                        <tr>
+                            <th style="width: 50%">Tinggi Barang</th>
+                            <td id="tinggi"></td>
+                        </tr>
+                        <tr>
                             <th style="width: 50%">Berat Barang</th>
                             <td id="berat_barang"></td>
                         </tr>
@@ -184,6 +201,9 @@
             var alamat_penerima = $(this).data('alamat_penerima');
             var nama_barang = $(this).data('nama_barang');
             var jenis_barang = $(this).data('jenis_barang');
+            var panjang = $(this).data('panjang');
+            var lebar = $(this).data('lebar');
+            var tinggi = $(this).data('tinggi');
             var berat_barang = $(this).data('berat_barang');
             var status = $(this).data('status');
             var total_harga = $(this).data('total_harga');
@@ -202,7 +222,10 @@
             $('#alamat_penerima').text(alamat_penerima);
             $('#nama_barang').text(nama_barang);
             $('#jenis_barang').text(jenis_barang);
-            $('#berat_barang').text(berat_barang + 'KG');
+            $('#panjang').text(panjang + ' CM');
+            $('#lebar').text(lebar + ' CM');
+            $('#tinggi').text(tinggi + ' CM');
+            $('#berat_barang').text(berat_barang + ' KG');
             $('#status').append(statusTransaksi(status));
             $('#total_harga').text('Rp' + numberWithCommas(total_harga));
 

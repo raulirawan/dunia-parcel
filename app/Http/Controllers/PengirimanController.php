@@ -59,6 +59,9 @@ class PengirimanController extends Controller
         $transaction->status = 'PENDING';
         $transaction->keterangan = $keterangan;
         $transaction->total_harga = $request->total_harga;
+        $transaction->panjang = $request->panjang;
+        $transaction->lebar = $request->lebar;
+        $transaction->tinggi = $request->tinggi;
 
 
         // kirim ke midtrans

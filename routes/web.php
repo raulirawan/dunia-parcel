@@ -39,7 +39,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('transaksi','TransactionController@index')->name('transaction.index');
 });
 
-Route::prefix('admin')->middleware(['admin'])->group(function () {
+Route::prefix('petugas')->middleware(['auth'])->group(function () {
+    Route::get('dashboard','Petugas\DashboardController@index')->name('petugas.dashboard.index');
+    Route::get('paket','Petugas\PaketController@index')->name('petugas.paket.index');
+    Route::get('paket/pick-up/{id}','Petugas\PaketController@pickUp')->name('petugas.paket.pick.up.index');
+
+
+
+});
+
+Route::prefix('admin')->middleware(['admin','auth'])->group(function () {
     Route::get('dashboard','Admin\DashboardController@index')->name('admin.dashboard.index');
 
     // Pelanggan

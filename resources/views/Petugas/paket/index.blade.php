@@ -44,36 +44,44 @@
                             <!-- /.card-header -->
                             <div class="card-body">
 
-                                <table id="example1" class="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 10%">Tanggal Transaksi</th>
-                                            <th>Kode Transaksi</th>
-                                            <th>Nomor Resi</th>
-                                            <th>Nama Pengirim</th>
-                                            <th>Alamat Pengambilan</th>
-                                            <th style="width: 15%">Aksi</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        @foreach ($transaction as $item)
+                                <div class="table-responsive">
+                                    <table id="example1" class="table table-bordered table-striped">
+                                        <thead>
                                             <tr>
-                                                <td>{{ $item->created_at }}</td>
-                                                <td>{{ $item->kode_transaksi }}</td>
-                                                <td>{{ $item->no_resi }}</td>
-                                                <td>{{ $item->nama_pengirim }}</td>
-                                                <td>{{ $item->alamat_pengirim }}</td>
-                                                <td>
-                                                    <a href="{{ route('petugas.paket.pick.up.index', $item->id) }}" class="btn btn-sm btn-primary"onclick="return confirm('Ambil Barang ?')">Ambil Barang</a>
-                                                </td>
+                                                <th style="width: 10%">Tanggal Transaksi</th>
+                                                <th>Kode Transaksi</th>
+                                                <th>Nomor Resi</th>
+                                                <th>Nama Pengirim</th>
+                                                <th>Alamat Pengambilan</th>
+                                                <th>Nama Penerima</th>
+                                                <th>Alamat Pengiriman</th>
+                                                <th style="width: 15%">Aksi</th>
+
                                             </tr>
-                                        @endforeach
+                                        </thead>
+                                        <tbody>
 
-                                    </tbody>
+                                            @foreach ($transaction as $item)
+                                                <tr>
+                                                    <td>{{ $item->created_at }}</td>
+                                                    <td>{{ $item->kode_transaksi }}</td>
+                                                    <td>{{ $item->no_resi }}</td>
+                                                    <td>{{ $item->nama_pengirim }}</td>
+                                                    <td>{{ $item->alamat_pengirim }}</td>
+                                                    <td>{{ $item->nama_penerima }}</td>
+                                                    <td>{{ $item->alamat_penerima }}</td>
+                                                    <td>
+                                                        <a href="{{ route('petugas.paket.pick.up.index', $item->id) }}"
+                                                            class="btn btn-sm btn-primary"onclick="return confirm('Ambil Barang ?')">Ambil
+                                                            Barang</a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
 
-                                </table>
+                                        </tbody>
+
+                                    </table>
+                                </div>
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -174,7 +182,6 @@
 @endsection
 
 @push('down-script')
-
     <script>
         $(function() {
             $("#example1").DataTable({

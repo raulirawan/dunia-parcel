@@ -131,8 +131,10 @@
           <div class="col-12 mb-3">
             <button type="submit" class="btn btn-primary btn-block">Login</button>
           </div>
-          <div class="text-center">Belum Punya Akun ? <a href="{{ route('register') }}">Daftar</a></div>
-
+         <div class="">
+            <div class="text-center">Belum Punya Akun ? <a href="{{ route('register') }}">Daftar</a></div>
+            <div class="text-center"><a href="{{ route('password.request') }}">Lupa Password ?</a></div>
+         </div>
           <!-- /.col -->
         </div>
       </form>
